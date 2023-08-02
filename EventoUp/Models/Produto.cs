@@ -4,12 +4,15 @@ namespace EventoUp.Models;
 
 public class Produto
 {
+    [Key]
     [Required]
-    public string? Nome { get; private set; }
+    public int id { get; set; }
     [Required]
-    [MinLength(0)]
-    public int Quantidade { get; private set; }
+    public string? Nome { get; set; }
     [Required]
-    [MinLength(0)]
-    public decimal Preco { get; private set; }  
+    //[MinLength(0)]
+    public int Quantidade { get; set; }
+    [Required]
+    //[MinLength(0)]
+    public decimal Preco { get; set; }  
 }

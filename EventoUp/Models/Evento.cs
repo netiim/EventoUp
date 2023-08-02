@@ -4,14 +4,28 @@ namespace EventoUp.Models;
 
 public class Evento
 {
+    [Key]
     [Required]
-    public string? Nome { get; private set; }
+    public int id { get; set; }
+
+    [Required]
+    public string? Nome { get; set; }
+
     [Required]    
-    public string? Local  { get; private set; }
-    public string? Capacidade  { get; private set; }
+    public string? Local  { get; set; }
+
+    public string? Capacidade  { get; set; }
+
     [Required]    
-    public string? Genero  { get; private set; }
+    public string? Genero  { get; set; }
+
     [Required]    
-    public DateTime Data  { get; private set; }   
-    public string? Descricao  { get; private set; }
+    public DateTime DataDoEvento  { get; set; }  
+    
+    public string? Descricao  { get; set; }
+
+    [Required]
+    public DateTime CriadoEm { get; private set; }
+
+    public DateTime AlteradoEm { get; private set; }
 }
