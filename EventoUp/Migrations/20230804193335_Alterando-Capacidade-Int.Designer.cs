@@ -3,6 +3,7 @@ using System;
 using EventoUp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventoUp.Migrations
 {
     [DbContext(typeof(EventoUpContext))]
-    partial class EventoUpContextModelSnapshot : ModelSnapshot
+    [Migration("20230804193335_Alterando-Capacidade-Int")]
+    partial class AlterandoCapacidadeInt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,5 +1,9 @@
-﻿using EventoUp.Data;
+﻿using AutoMapper;
+using EventoUp.Data;
+using EventoUp.Data.DTOs.Evento;
+using EventoUp.Data.DTOs.Produto;
 using EventoUp.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventoUp.Controllers;
@@ -9,10 +13,12 @@ namespace EventoUp.Controllers;
 public class ProdutoController : ControllerBase
 {
     private EventoUpContext _context;
+    private IMapper _mapper;
 
-    public ProdutoController(EventoUpContext context)
+    public ProdutoController(EventoUpContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
 
     [HttpPost]
@@ -35,5 +41,43 @@ public class ProdutoController : ControllerBase
     {
         var produto = _context.Produtos.FirstOrDefault(produto => produto.id == id);
         return produto != null ? Ok(produto) : NotFound();
+    }
+
+    [HttpPatch("{id}")]
+    public IActionResult AtualizaProdutoParcial(int id,
+      JsonPatchDocument<UpdateProdutoDTO> patch)
+    {
+        var produto = _context.Produtos.FirstOrDefault(
+            produto => produto.id == id);
+
+        if (produto == null) return NotFound();
+
+        var ProdutoParaAtualizar = _mapper.Map<UpdateProdutoDTO>(produto);
+
+        patch.ApplyTo(ProdutoParaAtualizar, ModelState);
+
+        if (!TryValidateModel(ProdutoParaAtualizar))
+        {
+            return ValidationProblem(ModelState);
+        }
+
+        _mapper.Map(ProdutoParaAtualizar, produto);
+        _context.SaveChanges();
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult ApagaProduto(int id)
+    {
+        var produto = _context.Produtos.FirstOrDefault(
+            produto => produto.id == id);
+
+        if (produto == null) return NotFound();
+
+        _context.Produtos.Remove(produto);
+        _context.SaveChanges();
+
+        return NoContent();
     }
 }
