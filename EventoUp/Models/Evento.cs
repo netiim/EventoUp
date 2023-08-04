@@ -14,7 +14,8 @@ public class Evento
     [Required]    
     public string? Local  { get; set; }
 
-    public string? Capacidade  { get; set; }
+    [Range(1,9999)]
+    public int Capacidade  { get; set; }
 
     [Required]    
     public string? Genero  { get; set; }

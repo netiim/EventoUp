@@ -10,9 +10,9 @@ public class Produto
     [Required]
     public string? Nome { get; set; }
     [Required]
-    //[MinLength(0)]
+    [Range(1, 99999)]
     public int Quantidade { get; set; }
     [Required]
-    //[MinLength(0)]
+    [Range(1, 99999)]
     public decimal Preco { get; set; }  
 }
