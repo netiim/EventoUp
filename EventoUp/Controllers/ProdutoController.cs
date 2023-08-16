@@ -21,7 +21,14 @@ public class ProdutoController : ControllerBase
         _mapper = mapper;
     }
 
+    /// <summary>
+    ///  Adiciona um produto ao banco de dados
+    /// </summary>
+    /// <param name="produto"></param>
+    /// <returns>IActionResults</returns>
+    /// <response code="201">Caso a inserção seja feita com sucesso</response>    
     [HttpPost]
+    [ProducesResponseType(typeof(Produto), StatusCodes.Status201Created)]
     public IActionResult CriarProduto(
     [FromBody] Produto produto)
     {

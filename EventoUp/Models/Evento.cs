@@ -29,4 +29,13 @@ public class Evento
     public DateTime CriadoEm { get; private set; }
 
     public DateTime AlteradoEm { get; private set; }
+
+    [Required]
+    public int UsuarioId { get; set; }
+
+    public virtual Usuario UsuarioResponsavel { get; set; }
+
+    public virtual Estoque Estoque { get; set; }
+
+
 }

@@ -1,17 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EventoUp.Models;
+namespace EventoUp.Data.DTOs.Usuario;
+
 /// <summary>
-/// Classe usada como modelo para o banco de dados
+/// DTO utilizada para preencher o objeto que vai criar um usuário
 /// </summary>
-public class Usuario
+public class CreateUsuarioDTO
 {
-    /// <summary>
-    /// Identificador da classe
-    /// </summary>
-    [Key]
-    [Required]    
-    public int Id { get; set; }
     /// <summary>
     /// Nome Completo do usuário
     /// </summary>
@@ -37,8 +32,4 @@ public class Usuario
     /// </summary>
     [Required(ErrorMessage = "É necessário digitar uma Data Nascimento.")]
     public DateTime DataNasc { get; set; }
-    /// <summary>
-    /// Lista de eventos que o usuario é responsavel
-    /// </summary>
-    public virtual ICollection<Evento>? EventosAdministrados { get; set; }
 }

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using EventoUp.Data.DTOs.Evento;
-using EventoUp.Data.DTOs.Produto;
+using EventoUp.Data.DTOs.Usuario;
 using EventoUp.Models;
 
 namespace EventoUp.Profiles
@@ -8,21 +7,20 @@ namespace EventoUp.Profiles
     /// <summary>
     /// Classe para mapear os objetos do auto mapper relacionados a usuário
     /// </summary>
-    public class EventoProfile : Profile
+    public class UsuarioProfile : Profile
     {
         /// <summary>
         /// Mapea as conversões de objetos para DTOs e virse-versa e auxilia o proxies a preencher os objetos necessarios
         /// </summary>
-        public EventoProfile()
+        public UsuarioProfile()
         {
-            CreateMap<UpdateEventoDTO, Evento>()
+            CreateMap<UpdateUsuarioDTO, Usuario>()
                 .ReverseMap();
-            CreateMap<CreateEventoDTO, Evento>()
+            CreateMap<CreateUsuarioDTO, Usuario>()
                 .ReverseMap();
-            CreateMap<ReadEventoDTO, Evento>()
-                .ForMember(eventoDTO => eventoDTO.UsuarioResponsavel,
-                opt => opt.MapFrom(evento => evento.UsuarioResponsavel))
+            CreateMap<ReadUsuarioDTO, Usuario>()
                 .ReverseMap();
+
         }
     }
 }
