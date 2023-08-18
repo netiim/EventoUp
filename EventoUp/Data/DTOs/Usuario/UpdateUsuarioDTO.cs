@@ -27,5 +27,13 @@ namespace EventoUp.Data.DTOs.Usuario
         /// </summary>
         [Required(ErrorMessage = "É necessário digitar uma Data Nascimento.")]
         public DateTime DataNasc { get; set; }
+        /// <summary>
+        /// Data de alterações feitas no evento
+        /// </summary>
+        public DateTime AlteradoEm { get; private set; }      
+        /// <summary>
+        /// Metodo utilizado para preencher a variavel alteradoEm durante a edição
+        /// </summary>
+        public void PreencheValorAlteradoEm() => AlteradoEm = DateTime.Now;
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EventoUp.Data.DTOs.Evento;
+using System.ComponentModel.DataAnnotations;
+using EventoUp.Models;
 
 namespace EventoUp.Data.DTOs.Usuario
 {
@@ -27,5 +29,9 @@ namespace EventoUp.Data.DTOs.Usuario
         /// Data Nascimento do usuário
         /// </summary>
         public DateTime DataNasc { get; set; }
+        /// <summary>
+        /// Lista de eventos que o usuario é responsavel
+        /// </summary>
+        public List<ReadEventoAdministradoDTO>? EventosAdministrados { get; set; }
     }
 }

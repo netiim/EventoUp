@@ -97,10 +97,10 @@ public class UsuarioController : ControllerBase
     {
         var Usuario = _context.Usuarios.FirstOrDefault(
             Usuario => Usuario.Id == id);
-
         if (Usuario == null) return NotFound();
 
-        var UsuarioParaAtualizar = _mapper.Map<UpdateUsuarioDTO>(Usuario);
+        UpdateUsuarioDTO UsuarioParaAtualizar = _mapper.Map<UpdateUsuarioDTO>(Usuario);
+        UsuarioParaAtualizar.PreencheValorAlteradoEm();
 
         patch.ApplyTo(UsuarioParaAtualizar, ModelState);
 

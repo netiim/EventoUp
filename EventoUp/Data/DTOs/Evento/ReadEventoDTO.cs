@@ -14,7 +14,7 @@ namespace EventoUp.Data.DTOs.Evento
         public string? Descricao { get; set; }
         public DateTime CriadoEm { get; private set; }
         public DateTime AlteradoEm { get; private set; }
-        public ReadUsuarioDTO UsuarioResponsavel { get; set; }
+        public ReadUsuarioResponsavelDTO UsuarioResponsavel { get; set; }
         public  Estoque Estoque { get; set; }
     }
 }

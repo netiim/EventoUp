@@ -38,6 +38,14 @@ public class Usuario
     [Required(ErrorMessage = "É necessário digitar uma Data Nascimento.")]
     public DateTime DataNasc { get; set; }
     /// <summary>
+    /// Data de criação do evento
+    /// </summary>
+    public DateTime CriadoEm { get; private set; }
+    /// <summary>
+    /// Data de alterações feitas no evento
+    /// </summary>
+    public DateTime AlteradoEm { get; private set; }
+    /// <summary>
     /// Lista de eventos que o usuario é responsavel
     /// </summary>
     public virtual ICollection<Evento>? EventosAdministrados { get; set; }

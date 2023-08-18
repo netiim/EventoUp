@@ -18,9 +18,10 @@ namespace EventoUp.Profiles
                 .ReverseMap();
             CreateMap<CreateUsuarioDTO, Usuario>()
                 .ReverseMap();
-            CreateMap<ReadUsuarioDTO, Usuario>()
+            CreateMap<Usuario, ReadUsuarioResponsavelDTO>()
                 .ReverseMap();
-
+            CreateMap<Usuario, ReadUsuarioDTO>()        
+                .ReverseMap();
         }
     }
 }

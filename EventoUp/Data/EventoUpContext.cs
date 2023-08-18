@@ -14,5 +14,6 @@ namespace EventoUp.Data
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Estoque> Estoques { get; set; }
     }
 }

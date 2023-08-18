@@ -32,4 +32,8 @@ public class CreateUsuarioDTO
     /// </summary>
     [Required(ErrorMessage = "É necessário digitar uma Data Nascimento.")]
     public DateTime DataNasc { get; set; }
+    /// <summary>
+    /// Data de criação do evento
+    /// </summary>
+    public DateTime CriadoEm { get; private set; } = DateTime.Now;
 }
