@@ -32,6 +32,6 @@ namespace EventoUp.Data.DTOs.Usuario
         /// <summary>
         /// Lista de eventos que o usuario é responsavel
         /// </summary>
-        public List<ReadEventoAdministradoDTO>? EventosAdministrados { get; set; }
+        public List<ReadEventoResumidoDTO>? EventosAdministrados { get; set; }
     }
 }

@@ -1,25 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EventoUp.Data.DTOs.Evento;
+namespace EventoUp.Data.DTOs.Estoque;
 
-public class UpdateEventoDTO
+public class UpdateEstoqueDTO
 {
     [Required]
-    public string? Nome { get; set; }
-
-    [Required]
-    public string? Local { get; set; }
-
-    [Range(1, 9999)]
-    public int Capacidade { get; set; }
-
-    [Required]
-    public string? Genero { get; set; }
-
-    [Required]
-    public DateTime DataDoEvento { get; set; }
-
-    public string? Descricao { get; set; }
+    public int EventoId { get; set; }
     /// <summary>
     /// Data de alterações feitas no evento
     /// </summary>

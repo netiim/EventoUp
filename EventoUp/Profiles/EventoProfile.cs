@@ -19,7 +19,7 @@ namespace EventoUp.Profiles
                 .ReverseMap();
             CreateMap<CreateEventoDTO, Evento>()
                 .ReverseMap();
-            CreateMap<Evento, ReadEventoAdministradoDTO>()
+            CreateMap<Evento, ReadEventoResumidoDTO>()
                 .ReverseMap();
             CreateMap<Evento, ReadEventoDTO>()
                 .ForMember(eventoDTO => eventoDTO.UsuarioResponsavel,

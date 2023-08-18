@@ -13,6 +13,8 @@ public class Estoque
 
     public virtual Evento Evento { get; set; }
 
+    public virtual ICollection<Produto> Produtos { get; set; }
+    [Required]
     public DateTime CriadoEm { get; private set; }
 
     public DateTime AlteradoEm { get; private set; }

@@ -1,6 +1,6 @@
 ﻿namespace EventoUp.Data.DTOs.Evento
 {
-    public class ReadEventoAdministradoDTO
+    public class ReadEventoResumidoDTO
     {
         public string? Nome { get; set; }
         public string? Local { get; set; }

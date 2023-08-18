@@ -1,4 +1,5 @@
-﻿using EventoUp.Data.DTOs.Usuario;
+﻿using EventoUp.Data.DTOs.Estoque;
+using EventoUp.Data.DTOs.Usuario;
 using EventoUp.Models;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,6 +16,5 @@ namespace EventoUp.Data.DTOs.Evento
         public DateTime CriadoEm { get; private set; }
         public DateTime AlteradoEm { get; private set; }
         public ReadUsuarioResponsavelDTO UsuarioResponsavel { get; set; }
-        public  Estoque Estoque { get; set; }
     }
 }
