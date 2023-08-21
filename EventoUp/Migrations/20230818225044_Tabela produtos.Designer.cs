@@ -3,6 +3,7 @@ using System;
 using EventoUp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventoUp.Migrations
 {
     [DbContext(typeof(EventoUpContext))]
-    partial class EventoUpContextModelSnapshot : ModelSnapshot
+    [Migration("20230818225044_Tabela produtos")]
+    partial class Tabelaprodutos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +41,7 @@ namespace EventoUp.Migrations
                     b.HasIndex("EventoId")
                         .IsUnique();
 
-                    b.ToTable("Estoques", (string)null);
+                    b.ToTable("Estoques");
                 });
 
             modelBuilder.Entity("EventoUp.Models.Evento", b =>
@@ -82,7 +84,7 @@ namespace EventoUp.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("Eventos", (string)null);
+                    b.ToTable("Eventos");
                 });
 
             modelBuilder.Entity("EventoUp.Models.Produto", b =>
@@ -123,7 +125,7 @@ namespace EventoUp.Migrations
 
                     b.HasIndex("EstoqueId");
 
-                    b.ToTable("Produtos", (string)null);
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("EventoUp.Models.Usuario", b =>
@@ -159,7 +161,7 @@ namespace EventoUp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios", (string)null);
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("EventoUp.Models.Estoque", b =>

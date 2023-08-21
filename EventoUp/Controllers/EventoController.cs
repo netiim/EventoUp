@@ -101,6 +101,7 @@ public class EventoController : ControllerBase
 
         var EventoParaAtualizar = _mapper.Map<UpdateEventoDTO>(evento);
         EventoParaAtualizar.PreencheValorAlteradoEm();
+
         patch.ApplyTo(EventoParaAtualizar, ModelState);
 
         if (!TryValidateModel(EventoParaAtualizar))

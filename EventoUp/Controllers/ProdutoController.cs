@@ -24,23 +24,24 @@ public class ProdutoController : ControllerBase
     /// <summary>
     ///  Adiciona um produto ao banco de dados
     /// </summary>
-    /// <param name="produto"></param>
+    /// <param name="produtoDTO"></param>
     /// <returns>IActionResults</returns>
     /// <response code="201">Caso a inserção seja feita com sucesso</response>    
     [HttpPost]
     [ProducesResponseType(typeof(Produto), StatusCodes.Status201Created)]
     public IActionResult CriarProduto(
-    [FromBody] Produto produto)
+    [FromBody] CreateProdutoDTO produtoDTO)
     {
+        var produto = _mapper.Map<Produto>(produtoDTO);
         _context.Produtos.Add(produto);
         _context.SaveChanges();
-        return CreatedAtAction(nameof(RecuperaProdutoPorID), new { id = produto.id }, produto);
+        return CreatedAtAction(nameof(RecuperaProdutoPorID), new { id = produto.id }, produtoDTO);
     }
 
     [HttpGet]
-    public IEnumerable<Produto> RecuperaProdutos([FromQuery] int skip = 0, [FromQuery] int take = 10)
+    public IEnumerable<ReadProdutoDTO> RecuperaProdutos([FromQuery] int skip = 0, [FromQuery] int take = 10)
     {
-        return _context.Produtos.Skip(skip).Take(take);
+        return _mapper.Map<List<ReadProdutoDTO>>(_context.Produtos.Skip(skip).Take(take));
     }
 
     [HttpGet("{id}")]

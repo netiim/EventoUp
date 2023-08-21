@@ -11,8 +11,34 @@ public class Produto
     public string? Nome { get; set; }
     [Required]
     [Range(1, 99999)]
-    public int Quantidade { get; set; }
+    public int QuantidadeDisponivel { get; set; }    
     [Required]
     [Range(1, 99999)]
-    public decimal Preco { get; set; }  
+    public int QuantidadeVendida { get; set; }
+    [Required]
+    [Range(1, 99999)]
+    public int QuantidadeEstragada { get; set; }
+    [Required]
+    [Range(1, 99999)]
+    public decimal PrecoPago { get; set; }
+    [Required]
+    [Range(1, 99999)]
+    public decimal PrecoRevenda { get; set; }
+
+    /// <summary>
+    /// Data de criação do evento
+    /// </summary>
+    [Required]
+    public DateTime CriadoEm { get; private set; }
+    /// <summary>
+    /// Data de alterações feitas no evento
+    /// </summary>
+    public DateTime AlteradoEm { get; private set; }
+
+    [Required]
+    public int EstoqueId { get; set; }
+
+    public virtual Estoque Estoque { get; set; }
+
+
 }

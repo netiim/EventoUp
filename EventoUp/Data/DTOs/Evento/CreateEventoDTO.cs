@@ -36,9 +36,15 @@ public class CreateEventoDTO
     /// </summary>
     public string? Descricao { get; set; }
 
+    /// <summary>
+    /// Data de criação do evento
+    /// </summary>
     [Required]
     public DateTime CriadoEm { get; private set; } = DateTime.Now;
 
+    /// <summary>
+    /// Id do Usuario responsavel pelo evento
+    /// </summary>
     [Required]
     public int UsuarioId { get; set; }
 }
